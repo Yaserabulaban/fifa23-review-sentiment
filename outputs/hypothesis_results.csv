@@ -1,5 +1,5 @@
 Hypothesis,Test,Statistic,p_value,Interpretation
-H1: Players with higher recent playtime are more likely to leave positive reviews,Mann-Whitney U test,59279016.5,5.9207534829816105e-121,"p=5.921e-121; Positive median=5.07, Negative median=0.32. Significant difference detected."
+H1: Players with higher recent playtime are more likely to leave positive reviews,Mann-Whitney U test,59279016.5,5.920753482981612e-121,"p=5.921e-121; Positive median=5.07, Negative median=0.32. Significant difference detected."
 H2: Players who own more games are more likely to provide negative reviews,Mann-Whitney U test,38080985.5,7.633997146009849e-187,"p=7.634e-187; Positive median=16.00, Negative median=30.00. Significant difference detected."
 H3: Sentiment changes over time,Chi-square test of month vs sentiment,211.35167693905925,7.256158804049812e-43,p=7.256e-43; sentiment distribution changes significantly over time.
 H4: Written sentiment agrees with Steam voted_up recommendation,VADER vs voted_up agreement,0.6936159600997506,,"VADER binary sentiment agrees with voted_up for 69.36% of cleaned reviews. Mismatches may indicate sarcasm, slang, short text, or mixed opinions."
