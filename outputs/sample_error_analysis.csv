@@ -1,0 +1,68 @@
+review,actual_sentiment,predicted_sentiment,review_length_words,playtime_hours,error_type
+I have more respect towards EDP than any EA workers,Negative,Positive,10,39.983333333333334,False Positive
+so 5araaaaaa,Negative,Positive,2,185.48333333333332,False Positive
+this game is so riged,Negative,Positive,5,171.48333333333332,False Positive
+Not that good of a game freezez everytime in corners... Im on a 3060 ti so it shouldnt,Negative,Positive,18,1.7166666666666666,False Positive
+"Ctrl + C, Ctrl + V, Repeat",Negative,Positive,7,196.36666666666667,False Positive
+"Okay game
+However very frustrating what lagging can cost ALL THE TIME!!!",Negative,Positive,12,64.46666666666667,False Positive
+NUNEZ,Negative,Positive,1,100.21666666666667,False Positive
+Great launching sim,Negative,Positive,3,41.25,False Positive
+Same ol' glitchy game,Negative,Positive,4,374.53333333333336,False Positive
+sranje žešće,Negative,Positive,2,1.45,False Positive
+Last FIFA x EA Sport game. Why not?,Positive,Negative,8,63.53333333333333,False Negative
+Jeśli chcesz grać w nocy to sprawdź czy nie masz sąsiadów żeby ich nie obudzić,Positive,Negative,15,200.41666666666666,False Negative
+shit.,Positive,Negative,1,554.7666666666667,False Negative
+I REALLY THOUGHT IT WAS A BAD GAME BUT AFTER I PLAYED IT I  MAD SURE IT EAS A BAD GAME,Positive,Negative,21,300.4166666666667,False Negative
+"Revised my review from a No to Yes
+
+Here are the notes with that though
+- You must manually be able to trouble shoot why EA Anticheat Engine doesn't work via their website or the web in general
+- Must expect to open the games a few times sometimes, just EA magic
+
+Otherwise the game works fine, is actually nextgen unlike Madden and 2K so we cannot give them too much hate for this. F*** your anticheat, you need to allow linux for the SteamDeck!",Positive,Negative,85,58.0,False Negative
+"Hello,
+
+Im gonna be real honest here, to try help you make a decision.
+
+I play fifa 23 for 1month- reached division 5 ( not amazing but decent atm), and im learning super fast; a bit of back ground.
+
+Im gonna keep this short.
+
+Pros:
+
+good graphics
+many game modes
+you can score awsome goals, learn awsome moves and play different tactics every week.
+game presentation really good.
+Has a competitive mode ( Ultimate Team- this is a pro and a big con)
+you can easily connect with friends cross platform
+
+Now here me out, im no hater, im just saying if i knew is like this i wouldnt  have bought it and played 200 hours in 1month( its kinda addicting and i had 1 month holiday, spammed it)
+
+Cons:
+
+Pc bugs- a lot- lags a lot sometimes; u cant connect sometimes- not always.
+Ultimate Team is pay to win( dont listen to fifa keyboard warriors to think it isnt) its simple- if you're better you will beat expensive teams. If you're equaly skilled and you have 1 mil team vs 7mil team value 90% if times you will loose- they shoot better, move better, tackle better, have smarter AI knowledge. Period. Its a slot machine card game mode. Dont invest big money here, you may regret it and start a rly bad habbit.
+
+Last con for me, game has scripting
+
+People say its whiners, its a l2p issue, its not, u can check it on the internet, even tough EA will never admit it.
+
+how scripting works?
+
+game has an algorithm to keep matches intense and with many chances on boat sides; if u have 2-0 and play better , u shouldnt wonder if you're team becomes 1 legged while the opponent team scores fantastic goals, gets every rebound ball to them etc& viceversa.
+
+i will continue play the game, i like it with all the cons, but if you want to play it for Ultimate Team- be rdy for pay to win or rdy to invest, you're skill will only take you so far , until you're matched 50/50% skill and than you're low value team will loose alot of games cuz of that.
+
+Also, gameplay is amazing, but dont expect people to play real fotball, everybody up abuse a Meta tactic, meta players , skill moves , anything to win. Its like 30% real fotball and 70% meta abuse.
+
+Gluck to anyone and make a smart decision by ur self!",Positive,Negative,413,333.35,False Negative
+nah dont cop,Positive,Negative,3,186.36666666666667,False Negative
+"Can't play the same, as it show a pop bar and then only few Error messages would show:
+Secure boot is not enabled on this Machine.
+followed by:
+The Application encountered an unrecoverable Error.
+Please Help!",Positive,Negative,36,0.15,False Negative
+"Bit buggy at times but overall pretty fun game. Seems like they fixed the issues with launching since I am able to launch the game trouble free every time. Same EA as always making it so it feels like you have to spend money to get anywhere at times, but I've still been able to have fun.",Positive,Negative,57,66.08333333333333,False Negative
+"Fix Anti Cheat, that's all!!",Positive,Negative,5,284.65,False Negative

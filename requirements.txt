@@ -1,11 +1,20 @@
+# Notebook/runtime
+jupyter
+ipykernel
+
+# Data analysis
 pandas
 numpy
+
+# Visualization
 matplotlib
 seaborn
+wordcloud
+
+# NLP and machine learning
 nltk
 scipy
 scikit-learn
-wordcloud
 transformers
 datasets
 evaluate
