@@ -1,0 +1,20 @@
+review,sentiment_label,transformer_sentiment,transformer_score,review_length_words
+"Decryption game is fun, love.",Negative,Positive,0.9998874664306641,5
+i love it very,Negative,Positive,0.9998821020126343,4
+"Happy Chinese New Year, thieves of Korea.",Negative,Positive,0.9998626708984375,7
+"wont launch. 
+so fun :D",Negative,Positive,0.9998568296432495,5
+Happy Korean Lunar New Year,Negative,Positive,0.9998537302017212,5
+game wont launch,Negative,Positive,0.9998472929000854,3
+"if want to waste time and money.
+After playing this game I lost my job.",Positive,Negative,0.999815046787262,15
+The pack balance is so bad,Positive,Negative,0.9998072981834412,6
+"good job EA, f*** you",Negative,Positive,0.9998071789741516,5
+It wont open,Negative,Positive,0.9998018145561218,3
+"this game destroys my mental health every single day, i wish i never got it",Positive,Negative,0.9998016953468323,15
+npcs are the worst so i can just get 7 to 0 on max difficulty,Positive,Negative,0.9998001456260681,15
+worst game ever. developers noob,Positive,Negative,0.9998001456260681,5
+Mid game Ea made it worst,Positive,Negative,0.9997965693473816,6
+"A clunky laggy mess. Do not buy.
+
+Update: It's no longer a clunky laggy mess. Maybe buy i guess.",Positive,Negative,0.9997958540916443,19

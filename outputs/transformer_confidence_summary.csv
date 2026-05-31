@@ -1,0 +1,7 @@
+confidence_band,transformer_matches_voted_up,review_count
+Low/Medium,False,44
+Low/Medium,True,32
+High,False,38
+High,True,37
+Very High,False,405
+Very High,True,1444
