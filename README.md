@@ -1,6 +1,6 @@
 # Sentiment Analysis and Opinion Mining of FIFA 23 Steam Reviews
 
-This repository contains a Social Media Computing assignment notebook for sentiment analysis and opinion mining on FIFA 23 Steam reviews. The notebook builds an end-to-end NLP workflow covering data cleaning, exploratory data analysis, text preprocessing, hypothesis testing, traditional machine learning, transformer-based sentiment comparison, opinion mining, aspect-based sentiment analysis, and saved outputs for report writing.
+This repository contains a Social Media Computing assignment notebook for sentiment analysis and opinion mining on FIFA 23 Steam reviews. The notebook builds an end-to-end NLP workflow covering data cleaning, exploratory data analysis, text preprocessing, hypothesis testing, traditional machine learning, a trained BiLSTM deep learning model, transformer-based sentiment comparison, opinion mining, aspect-based sentiment analysis, and saved outputs for report writing.
 
 ## Dataset Description
 
@@ -30,6 +30,8 @@ The main supervised sentiment label is `voted_up`:
 
 The notebook removes missing or empty review text, removes exact duplicate review texts, converts date columns, creates sentiment labels, creates review-length features, and converts playtime minutes into hours for interpretation.
 
+Because `voted_up` is binary, the supervised task is also binary. Steam does not provide a reliable neutral ground-truth label, so neutral sentiment is not used as a supervised class. VADER is still reported descriptively with Positive, Neutral, and Negative labels, then converted to binary for direct comparison with `voted_up`.
+
 ## How to Run the Notebook in Colab
 
 1. Open `tutorial_1_smc.ipynb` in Google Colab.
@@ -53,7 +55,12 @@ The `outputs/` folder contains report-ready CSV files, including:
 - `final_cleaned_fifa23_reviews.csv`: Cleaned dataset with raw and processed review text.
 - `model_results.csv`: Traditional ML model metrics.
 - `combined_model_results.csv`: Traditional ML and transformer metrics in one table.
+- `combined_model_results_with_deep_learning.csv`: Traditional ML, trained BiLSTM deep learning, and transformer metrics in one table.
+- `deep_learning_bilstm_results.csv`: Metrics for the trained BiLSTM neural network.
+- `deep_learning_bilstm_training_history.csv`: Training and validation loss/accuracy history for the BiLSTM model.
+- `deep_learning_bilstm_predictions.csv`: BiLSTM test-set predictions and positive-class probabilities.
 - `hypothesis_results.csv`: Statistical hypothesis test results and interpretations.
+- `vader_3class_distribution.csv`: Descriptive VADER Positive/Neutral/Negative distribution before binary conversion.
 - `aspect_sentiment_results.csv`: Aspect-based sentiment counts and percentages.
 - `aspect_mentions.csv`: Review-level aspect mentions with matched keywords and VADER polarity.
 - `sample_error_analysis.csv`: False positive and false negative examples.
@@ -66,7 +73,7 @@ The `outputs/` folder contains report-ready CSV files, including:
 - `positive_opinion_phrases.csv` and `negative_opinion_phrases.csv`: Simple adjective-noun opinion phrases.
 - `strong_positive_examples.csv` and `strong_negative_examples.csv`: Reviews with strong VADER polarity.
 
-The `outputs/figures/` folder contains PNG visualizations such as sentiment distribution, monthly review trends, review-length distribution, metadata box/violin plots, correlation heatmap, word clouds, TF-IDF term charts, confusion matrices, model comparison charts, transformer confidence analysis, opinion-word and opinion-phrase charts, aspect sentiment counts, and aspect polarity heatmaps.
+The `outputs/figures/` folder contains PNG visualizations such as sentiment distribution, monthly review trends, review-length distribution, metadata box/violin plots, correlation heatmap, word clouds, TF-IDF term charts, confusion matrices, model comparison charts, BiLSTM training history, VADER 3-class distribution, transformer confidence analysis, opinion-word and opinion-phrase charts, aspect sentiment counts, and aspect polarity heatmaps.
 
 ## Main Model Results
 
@@ -74,12 +81,25 @@ The `outputs/figures/` folder contains PNG visualizations such as sentiment dist
 |---|---:|---:|---:|---:|
 | Logistic Regression | 0.8566 | 0.8403 | 0.8534 | 0.8468 |
 | Linear SVM | 0.8414 | 0.8193 | 0.8448 | 0.8318 |
+| BiLSTM Neural Network | 0.8404 | 0.8479 | 0.7997 | 0.8231 |
 | Random Forest | 0.8155 | 0.7802 | 0.8389 | 0.8085 |
 | Multinomial Naive Bayes | 0.7793 | 0.8621 | 0.6246 | 0.7244 |
 | Transformer DistilBERT SST-2 | 0.7565 | 0.8184 | 0.6114 | 0.6999 |
 
-Logistic Regression achieved the strongest overall traditional ML performance by F1-score in the saved results. The transformer section is included as a practical pretrained deep-learning benchmark, with additional confidence and mismatch examples to explain why a general sentiment model may disagree with Steam recommendation labels.
+Logistic Regression achieved the strongest overall performance by F1-score in the saved results. The trained BiLSTM neural network provides a true deep learning model trained on the FIFA 23 review dataset and achieved an F1-score of 0.8231. It underperformed Logistic Regression but outperformed Random Forest, Multinomial Naive Bayes, and the pretrained DistilBERT SST-2 benchmark. The transformer section is retained as a practical pretrained benchmark, with additional confidence and mismatch examples to explain why a general sentiment model may disagree with Steam recommendation labels.
+
+## Additional Sentiment Outputs
+
+VADER's descriptive 3-class distribution is:
+
+| VADER Label | Review Count | Percentage |
+|---|---:|---:|
+| Positive | 7,167 | 35.75% |
+| Neutral | 6,224 | 31.04% |
+| Negative | 6,659 | 33.21% |
+
+For H4, VADER is converted to binary using the documented rule `compound >= 0` = Positive and `compound < 0` = Negative, because the Steam `voted_up` label has no neutral class.
 
 ## Future Work
 
-Future improvements could include fine-tuning a transformer model directly on the FIFA 23 Steam review labels, expanding the aspect dictionary with more football-specific and EA-specific terms, adding sarcasm and mixed-opinion detection, comparing results across multiple FIFA/EA Sports FC releases, and using manual annotation on a review sample to evaluate how well `voted_up` represents written sentiment.
+Future improvements could include fine-tuning a transformer model directly on the FIFA 23 Steam review labels, experimenting with stronger deep learning architectures such as GRU/CNN hybrids, expanding the aspect dictionary with more football-specific and EA-specific terms, adding sarcasm and mixed-opinion detection, comparing results across multiple FIFA/EA Sports FC releases, and using manual annotation on a review sample to evaluate how well `voted_up` represents written sentiment.
