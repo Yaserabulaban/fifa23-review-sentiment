@@ -1,6 +1,6 @@
 # Sentiment Analysis and Opinion Mining of FIFA 23 Steam Reviews
 
-This repository contains a Social Media Computing assignment notebook for sentiment analysis and opinion mining on FIFA 23 Steam reviews. The notebook builds an end-to-end NLP workflow covering data cleaning, exploratory data analysis, text preprocessing, hypothesis testing, traditional machine learning, a trained BiLSTM deep learning model, transformer-based sentiment comparison, opinion mining, aspect-based sentiment analysis, and saved outputs for report writing.
+This repository contains a Social Media Computing assignment notebook for sentiment analysis and opinion mining on FIFA 23 Steam reviews. The notebook builds an end-to-end NLP workflow covering data cleaning, exploratory data analysis, text preprocessing, hypothesis testing, traditional machine learning, a trained BiLSTM deep learning model, transformer-based sentiment comparison, VADER-derived multi-class sentiment modelling, opinion mining, aspect-based sentiment analysis, and saved outputs for report writing.
 
 ## Dataset Description
 
@@ -32,6 +32,8 @@ The notebook removes missing or empty review text, removes exact duplicate revie
 
 Because `voted_up` is binary, the supervised task is also binary. Steam does not provide a reliable neutral ground-truth label, so neutral sentiment is not used as a supervised class. VADER is still reported descriptively with Positive, Neutral, and Negative labels, then converted to binary for direct comparison with `voted_up`.
 
+The notebook also includes a separate multi-class experiment using VADER-derived weak labels. This additional experiment predicts written-sentiment categories (`Negative`, `Neutral`, `Positive`) created from VADER compound score thresholds. These labels are not manual human annotations and should not be described as true ground truth; they are used only to compare model behaviour when a neutral class is included.
+
 ## How to Run the Notebook in Colab
 
 1. Open `tutorial_1_smc.ipynb` in Google Colab.
@@ -61,6 +63,12 @@ The `outputs/` folder contains report-ready CSV files, including:
 - `deep_learning_bilstm_predictions.csv`: BiLSTM test-set predictions and positive-class probabilities.
 - `hypothesis_results.csv`: Statistical hypothesis test results and interpretations.
 - `vader_3class_distribution.csv`: Descriptive VADER Positive/Neutral/Negative distribution before binary conversion.
+- `multiclass_vader_label_distribution.csv`: VADER-derived weak-label distribution used for the additional multi-class experiment.
+- `multiclass_model_results.csv`: Accuracy, macro metrics, and weighted metrics for multi-class ML and BiLSTM models.
+- `multiclass_model_results_detailed.csv`: Per-class precision, recall, F1-score, and support for each multi-class model.
+- `multiclass_bilstm_training_history.csv`: Multi-class BiLSTM training and validation history.
+- `multiclass_bilstm_predictions.csv`: Multi-class BiLSTM predictions and class probabilities.
+- `multiclass_error_examples.csv`: Example errors from the best multi-class model.
 - `aspect_sentiment_results.csv`: Aspect-based sentiment counts and percentages.
 - `aspect_mentions.csv`: Review-level aspect mentions with matched keywords and VADER polarity.
 - `sample_error_analysis.csv`: False positive and false negative examples.
@@ -73,7 +81,7 @@ The `outputs/` folder contains report-ready CSV files, including:
 - `positive_opinion_phrases.csv` and `negative_opinion_phrases.csv`: Simple adjective-noun opinion phrases.
 - `strong_positive_examples.csv` and `strong_negative_examples.csv`: Reviews with strong VADER polarity.
 
-The `outputs/figures/` folder contains PNG visualizations such as sentiment distribution, monthly review trends, review-length distribution, metadata box/violin plots, correlation heatmap, word clouds, TF-IDF term charts, confusion matrices, model comparison charts, BiLSTM training history, VADER 3-class distribution, transformer confidence analysis, opinion-word and opinion-phrase charts, aspect sentiment counts, and aspect polarity heatmaps.
+The `outputs/figures/` folder contains PNG visualizations such as sentiment distribution, monthly review trends, review-length distribution, metadata box/violin plots, correlation heatmap, word clouds, TF-IDF term charts, confusion matrices, model comparison charts, BiLSTM training history, VADER 3-class distribution, multi-class model comparison charts, transformer confidence analysis, opinion-word and opinion-phrase charts, aspect sentiment counts, and aspect polarity heatmaps.
 
 ## Main Model Results
 
@@ -99,6 +107,34 @@ VADER's descriptive 3-class distribution is:
 | Negative | 6,659 | 33.21% |
 
 For H4, VADER is converted to binary using the documented rule `compound >= 0` = Positive and `compound < 0` = Negative, because the Steam `voted_up` label has no neutral class.
+
+## Multi-Class Sentiment Experiment
+
+The additional multi-class experiment uses VADER compound score thresholds to create weak labels:
+
+- `Negative`: compound score `<= -0.05`
+- `Neutral`: compound score between `-0.05` and `0.05`
+- `Positive`: compound score `>= 0.05`
+
+The resulting weak-label distribution is:
+
+| Derived Label | Review Count | Percentage |
+|---|---:|---:|
+| Negative | 6,659 | 33.21% |
+| Neutral | 6,224 | 31.04% |
+| Positive | 7,167 | 35.75% |
+
+The multi-class models were evaluated with macro F1-score as the main metric because it treats each class equally:
+
+| Model | Accuracy | Macro Precision | Macro Recall | Macro F1 | Weighted F1 |
+|---|---:|---:|---:|---:|---:|
+| Multiclass Logistic Regression | 0.8511 | 0.8511 | 0.8538 | 0.8511 | 0.8503 |
+| Multiclass Linear SVM | 0.8474 | 0.8473 | 0.8496 | 0.8473 | 0.8463 |
+| Multiclass BiLSTM Neural Network | 0.8429 | 0.8470 | 0.8439 | 0.8450 | 0.8436 |
+| Multiclass Random Forest | 0.7890 | 0.7928 | 0.7938 | 0.7883 | 0.7872 |
+| Multiclass Multinomial Naive Bayes | 0.6845 | 0.7252 | 0.6745 | 0.6630 | 0.6670 |
+
+Logistic Regression achieved the best multi-class macro F1-score. The multi-class BiLSTM performed competitively but did not outperform the strongest TF-IDF models. In per-class results, the neutral category was handled well by Logistic Regression, Linear SVM, and BiLSTM, while Multinomial Naive Bayes had much weaker neutral recall.
 
 ## Future Work
 
