@@ -64,6 +64,7 @@ The `outputs/` folder contains report-ready CSV files, including:
 - `deep_learning_bilstm_predictions.csv`: BiLSTM test-set predictions and positive-class probabilities.
 - `hypothesis_results.csv`: Statistical hypothesis test results and interpretations.
 - `vader_3class_distribution.csv`: Descriptive VADER Positive/Neutral/Negative distribution before binary conversion.
+- `vader_binary_distribution.csv`: VADER distribution after conversion to Positive/Negative for comparison with `voted_up`.
 - `multiclass_vader_label_distribution.csv`: VADER-derived weak-label distribution used for the additional multi-class experiment.
 - `multiclass_model_results.csv`: Accuracy, macro metrics, and weighted metrics for multi-class ML and BiLSTM models.
 - `multiclass_model_results_detailed.csv`: Per-class precision, recall, F1-score, and support for each multi-class model.
@@ -82,7 +83,7 @@ The `outputs/` folder contains report-ready CSV files, including:
 - `positive_opinion_phrases.csv` and `negative_opinion_phrases.csv`: Simple adjective-noun opinion phrases.
 - `strong_positive_examples.csv` and `strong_negative_examples.csv`: Reviews with strong VADER polarity.
 
-The `outputs/figures/` folder contains PNG visualizations such as sentiment distribution, monthly review trends, review-length distribution, metadata box/violin plots, correlation heatmap, word clouds, TF-IDF term charts, confusion matrices, model comparison charts, BiLSTM training history, VADER 3-class distribution, multi-class model comparison charts, transformer confidence analysis, opinion-word and opinion-phrase charts, aspect sentiment counts, and aspect polarity heatmaps.
+The `outputs/figures/` folder contains PNG visualizations such as sentiment distribution, monthly review trends, review-length distribution, metadata box/violin plots, correlation heatmap, word clouds, TF-IDF term charts, confusion matrices, model comparison charts, BiLSTM training history, VADER 3-class and binary distributions, multi-class model comparison charts, transformer confidence analysis, opinion-word and opinion-phrase charts, aspect sentiment counts, and aspect polarity heatmaps.
 
 ## Main Model Results
 
@@ -108,6 +109,13 @@ VADER's descriptive 3-class distribution is:
 | Negative | 6,659 | 33.21% |
 
 For H4, VADER is converted to binary using the documented rule `compound >= 0` = Positive and `compound < 0` = Negative, because the Steam `voted_up` label has no neutral class.
+
+After binary conversion, the VADER distribution is:
+
+| Binary VADER Label | Review Count | Percentage |
+|---|---:|---:|
+| Positive | 13,295 | 66.31% |
+| Negative | 6,755 | 33.69% |
 
 ## Multi-Class Sentiment Experiment
 
