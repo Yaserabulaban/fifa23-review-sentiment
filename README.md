@@ -4,7 +4,7 @@ This repository contains a Social Media Computing assignment notebook for sentim
 
 ## Dataset Description
 
-The dataset file is `fifa23_steam_reviews.csv`. It contains 25,737 Steam review records with 16 original columns:
+The dataset file is `dataset/fifa23_steam_reviews.csv`. It contains 25,737 Steam review records with 16 original columns:
 
 - `id`
 - `language`
@@ -36,19 +36,20 @@ The notebook also includes a separate multi-class experiment using VADER-derived
 
 ## How to Run the Notebook in Colab
 
-1. Open `tutorial_1_smc.ipynb` in Google Colab.
-2. Upload `requirements.txt` and `fifa23_steam_reviews.csv` to the same Colab session or keep them in the repository root when opening from GitHub.
+1. Open `notebook/tutorial_1_smc.ipynb` in Google Colab.
+2. Keep `requirements.txt` in the repository root and keep the dataset at `dataset/fifa23_steam_reviews.csv`. If running outside the repository, upload the CSV manually when prompted.
 3. Run the first setup cell. It installs dependencies from `requirements.txt`. If `requirements.txt` is missing, it installs the core notebook packages directly.
 4. Select `Runtime > Restart and run all`.
 5. After execution, review generated tables in `outputs/` and figures in `outputs/figures/`.
 
 ## Required Files
 
-- `tutorial_1_smc.ipynb`: Main analysis notebook.
+- `notebook/tutorial_1_smc.ipynb`: Main analysis notebook.
 - `requirements.txt`: Python dependencies required to run the notebook.
-- `fifa23_steam_reviews.csv`: Raw FIFA 23 Steam reviews dataset.
+- `dataset/fifa23_steam_reviews.csv`: Raw FIFA 23 Steam reviews dataset.
 - `outputs/`: Generated CSV result files.
 - `outputs/figures/`: Generated PNG charts for the report.
+- `report/`: Word report draft/final report files.
 
 ## Outputs Folder
 
